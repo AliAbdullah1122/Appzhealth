@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060737597584",
+    "project_id": "appzhealth-881a7",
+    "storage_bucket": "appzhealth-881a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060737597584:android:8094335ab26f9905f91815",
+        "android_client_info": {
+          "package_name": "com.appzhealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBViBwpG5rSYtGRRnyqYTohnZWP_gUrtMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
