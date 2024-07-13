@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     // paddingTop: '50%',
     // borderWidth: 1,
     // paddingBottom: mvs(200),
-    paddingHorizontal: mvs(20),
+    // paddingHorizontal: mvs(20),
   },
   txt: {marginBottom: mvs(10), fontSize: mvs(20)},
   button: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   contentContainerStyleNew: {
     flexGrow: 1,
     paddingHorizontal: mvs(20),
-    marginVertical: mvs(10),
+    // marginVertical: mvs(10),
     paddingVertical: mvs(20),
     backgroundColor: colors.white,
 
@@ -65,13 +65,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   keyboardcontentcontainer: {
-    paddingHorizontal: mvs(0),
+    paddingHorizontal: mvs(20),
+    backgroundColor: colors.white,
     flexGrow: 0,
-    paddingBottom: mvs(200),
+    paddingBottom: mvs(130),
   },
   boldtext: {
     marginTop: mvs(10),
-    marginBottom: mvs(20),
+    marginBottom: mvs(7),
+  },
+  mediumtext:{
+    marginBottom:mvs(20)
   },
   IAgreeView: {
     flex: 1,

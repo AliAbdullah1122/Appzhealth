@@ -21,7 +21,7 @@ export const renewpasswordFormValidation = yup.object().shape({
 });
 export const signupFormValidation = yup.object().shape({
   first_name: yup.string().required('req_first_name'),
-  // middle_name: yup.string().required('req_middle_name'),
+  last_name: yup.string().required('Last Name is Required'),
   email: yup.string().email('invalid_email').required('req_email'),
   // phone: yup
   //   .number()
@@ -49,12 +49,7 @@ export const signupFormValidation = yup.object().shape({
     )
     .required('Phone is required'),
 
-  password: yup.string().required('req_pass').min(8, 'weak_pass'),
-  confirm_password: yup
-    .string()
-    .required('req_pass')
-    .oneOf([yup.ref('password')], 'miss_match_pass'),
-  surname: yup.string().required('req_surname'),
+    doctor_npi: yup.string().required('Doctor NPI is Required')
   // gender: yup.string().required('req_gender'),
   // country_code: yup.string().required('req_country_code'),
   // house_name: yup.string().required('req_house_name'),
@@ -63,6 +58,13 @@ export const signupFormValidation = yup.object().shape({
   // city: yup.string().required('req_city'),
   // cnic: yup.number().min(13, 'invalid_cnic'),
   // dob: yup.string().required('req_dob'),
+});
+export const AddPatientFormValidation = yup.object().shape({
+  first_name: yup.string().required('req_first_name'),
+  last_name: yup.string().required('Last Name is Required'),
+  // email: yup.string().email('invalid_email').required('req_email'),
+  dob: yup.string().required('Date of Birth is Required'),
+
 });
 
 export const signupDetailsFormValidation = yup.object().shape({

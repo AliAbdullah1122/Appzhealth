@@ -70,15 +70,23 @@ const Splash = (props: props) => {
       try {
         const token = await AsyncStorage.getItem('accessToken');
         if (token) {
-          
-          resetStack('Drawer');
+          setTimeout(() => {
+            resetStack('Drawer');
+          }, 2000);
+         
           dispatch(setUserInfo(user))
         } else {
-          resetStack('Login');
+          setTimeout(() => {
+            resetStack('Login');
+          }, 2000);
+         
         }
       } catch (error) {
         console.error('Failed to fetch the token', error);
-        resetStack('Login');
+        setTimeout(() => {
+          resetStack('Login');
+        }, 2000);
+        // resetStack('Login');
       }
     };
     checkToken();

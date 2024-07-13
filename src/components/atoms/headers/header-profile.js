@@ -14,7 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Medium from 'typography/medium-text';
 import {Row} from '../row';
 import {SearchInput} from '../inputs';
-const HeaderX = ({
+const HeaderXProfile = ({
   style = {},
   mtop = 0,
   title,
@@ -30,7 +30,7 @@ const HeaderX = ({
   return (
     <View style={[styles.container, style]}>
       <Row style={{alignItems: 'center'}}>
-        {back ? (
+        {back && (
           <TouchableOpacity
             // style={{
             //   backgroundColor: colors.white,
@@ -38,27 +38,16 @@ const HeaderX = ({
             //   borderRadius: mvs(7),
             // }}
             onPress={() => navigation?.goBack()}>
-            <Icon
+            {/* <Icon
               name={I18nManager.isRTL ? 'arrowright' : 'arrowleft'}
               size={mvs(20)}
-              color={colors.primary}
-            />
+              color={colors.white}
+            /> */}
           </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            style={{
-              backgroundColor: colors.white,
-              padding: mvs(5),
-              borderRadius: mvs(7),
-            }}
-            onPress={() => navigation?.toggleDrawer()}>
-            <MaterialCommunityIcons
-              name={'menu'}
-              size={mvs(20)}
-              color={colors.black}
-            />
-          </TouchableOpacity>
+
         )}
+      
+        
 
         {title ? (
           <Medium fontSize={mvs(20)} label={title} style={[styles.title]} />
@@ -97,7 +86,7 @@ const HeaderX = ({
     </View>
   );
 };
-export default React.memo(HeaderX);
+export default React.memo(HeaderXProfile);
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,

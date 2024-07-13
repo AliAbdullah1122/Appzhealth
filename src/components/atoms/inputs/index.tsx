@@ -33,6 +33,8 @@ import StartOrderDropdownModal from 'components/molecules/modals/startorder-drop
 import {DatePicker} from '../date-picker';
 import moment from 'moment';
 import DropdownModalNew from 'components/molecules/modals/new-dropdown-modal';
+import PolicyDropdownModal from 'components/molecules/modals/policy-dropdown-modal';
+import PatientManagemetDropdownModal from 'components/molecules/modals/patientMG-dropdown-modal';
 type props = {
   isRequired?: boolean;
   onChangeText: (text: string) => void;
@@ -240,7 +242,114 @@ const PrimaryInput = (props: props) => {
     </View>
   );
 };
-export default React.memo(PrimaryInput);
+const PrimaryInputPatient = (props: props) => {
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false); // Add state for DateTimePickerModal
+
+  const [secure, setSecure] = useState(true);
+  const {language} = useAppSelector(s => s.user);
+
+  const {
+    onChangeText,
+    value,
+    style,
+    label,
+    placeholder = 'type here',
+    labelStyle,
+    containerStyle,
+    errorStyle,
+    numberOfLines,
+    secureTextEntry,
+    isPassword,
+    height,
+    isCalendar,
+    keyboardType,
+    error,
+    mainContainer,
+    editable = true,
+    onBlur = () => {},
+    onPressIn = () => {},
+    isRequired = false,
+    maximumDate,
+  } = props;
+  const showDatePicker = () => {
+    setDatePickerVisible(true);
+  };
+  const hideDatePicker = () => {
+    setDatePickerVisible(false); // Call onCancel when the modal is canceled
+  };
+  const handleConfirm = (date: Date) => {
+    onChangeText(moment(date).format('YYYY-MM-DD'));
+    hideDatePicker();
+  };
+
+  return (
+    <View style={[mainContainer]}>
+      {label && (
+        <Regular label={label} color={colors.gray} style={[styles.labelStyle, labelStyle]}>
+          {isRequired ? <Regular color={colors.red} label={' *'} /> : null}
+        </Regular>
+      )}
+      <View style={[styles.Container, containerStyle]}>
+        <TextInput
+          editable={editable}
+          onBlur={onBlur}
+          onPressIn={onPressIn}
+          keyboardType={keyboardType}
+          secureTextEntry={isPassword && secure}
+          value={value}
+          placeholderTextColor={`${colors.placeholder}`}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          style={[
+            styles.textInput,
+            style,
+            {textAlign: I18nManager.isRTL ? 'right' : 'left'},
+          ]}
+        />
+        {isPassword && (
+          <TouchableOpacity
+            style={styles.PasswordIcon}
+            onPress={() => setSecure(!secure)}>
+            <Feather
+              size={25}
+              name={secure ? 'eye-off' : 'eye'}
+              color={colors.black}
+            />
+          </TouchableOpacity>
+        )}
+        {isCalendar && (
+          <TouchableOpacity
+            style={styles.PasswordIcon}
+            // onPress={() => setSecure(!secure)}
+            onPress={showDatePicker}>
+            <FontAwesome size={20} name={'calendar'} color={colors.black} />
+          </TouchableOpacity>
+        )}
+      </View>
+      <DatePicker
+        isVisible={isDatePickerVisible}
+        onChangeText={str => {
+          setDatePickerVisible(false);
+          onChangeText(str);
+        }}
+        maximumDate={maximumDate}
+        onCancel={hideDatePicker}
+      />
+      <Regular
+        numberOfLines={numberOfLines}
+        label={error ? error : ''}
+        style={[
+          styles.errorLabel,
+          errorStyle,
+          {
+            height: height,
+          },
+        ]}
+      />
+    </View>
+  );
+};
+export default React.memo(PrimaryInputPatient);
 
 export const CommentInput = (props: props) => {
   const {
@@ -353,6 +462,108 @@ export const InputWithIcon = (props: props) => {
       </TouchableOpacity>
       <Regular label={error ? `${t(error)}` : ''} style={styles.errorLabel} />
       <DropdownModal
+        onClose={() => setVisible(false)}
+        onChangeText={onChangeText}
+        value={id}
+        visible={visible}
+        items={items}
+      />
+    </>
+  );
+};
+export const InputWithIconPoolicy = (props: props) => {
+  const [visible, setVisible] = React.useState(false);
+  const {
+    items = [],
+    onChangeText,
+    onBlur = () => {},
+    value,
+    style,
+    containerStyle,
+    id,
+    placeholder,
+    editable,
+    error,
+    label,
+    isRequired = false,
+  } = props;
+  return (
+    <>
+      {label && (
+        <Regular label={label} style={styles.labelStyle}>
+          {isRequired ? <Regular color={colors.red} label={' *'} /> : null}
+        </Regular>
+      )}
+      <TouchableOpacity
+        disabled={editable}
+        onPress={() => {
+          setVisible(true);
+          onBlur();
+        }}
+        style={[styles.dropDownContainer, containerStyle]}>
+        <Medium
+          label={
+            items?.find(x => x?.id == id)?.title ||
+            items?.find(x => x?.id == id)?.id ||
+            placeholder
+          }
+          color={colors.black}
+        />
+        <Feather size={25} name={'chevron-down'} color={colors.black} />
+      </TouchableOpacity>
+      <Regular label={error ? `${t(error)}` : ''} style={styles.errorLabel} />
+      <PolicyDropdownModal
+        onClose={() => setVisible(false)}
+        onChangeText={onChangeText}
+        value={id}
+        visible={visible}
+        items={items}
+      />
+    </>
+  );
+};
+export const InputWithIconPatientMnagemennt = (props: props) => {
+  const [visible, setVisible] = React.useState(false);
+  const {
+    items = [],
+    onChangeText,
+    onBlur = () => {},
+    value,
+    style,
+    containerStyle,
+    id,
+    placeholder,
+    editable,
+    error,
+    label,
+    isRequired = false,
+  } = props;
+  return (
+    <>
+      {label && (
+        <Regular label={label} style={styles.labelStyle}>
+          {isRequired ? <Regular color={colors.red} label={' *'} /> : null}
+        </Regular>
+      )}
+      <TouchableOpacity
+        disabled={editable}
+        onPress={() => {
+          setVisible(true);
+          onBlur();
+        }}
+        style={[styles.dropDownContainer, containerStyle]}>
+        <Medium
+          label={
+            items?.find(x => x?.id == id)?.title ||
+            items?.find(x => x?.id == id)?.id ||
+            placeholder
+          }
+          color={colors.black}
+        />
+        <Feather size={25} name={'chevron-down'} color={colors.black} />
+      </TouchableOpacity>
+      <Regular label={error ? `${t(error)}` : ''} style={styles.errorLabel} />
+      <PatientManagemetDropdownModal
         onClose={() => setVisible(false)}
         onChangeText={onChangeText}
         value={id}
@@ -703,12 +914,14 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     height: mvs(52),
-    borderRadius: mvs(15),
+    borderRadius: mvs(6),
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: mvs(16.5),
     backgroundColor: colors.white,
     alignItems: 'center',
+    borderWidth:1,
+    borderColor:colors.gray
     // ...colors.shadow,
   },
   searchIcon: {

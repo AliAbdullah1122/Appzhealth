@@ -139,6 +139,122 @@ export const SERVICE_LIST_NEW = [
   
   
 ];
+export const PATIENT_LIST_DATA = [
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  {
+    id: '#63746723647264',
+    appt:'apoinntmennt',
+    patient: 'usama',
+    phone:"800d678",
+    copay: 'copay',
+    dedecutable:"deductable",
+    insurance:"insurance",
+    status:'sttuas'
+  },
+  
+
+  
+  
+];
 export const MANAGE_CAR_LIST = [
   {
     icon: IMG.truckvehicle,

@@ -1,6 +1,6 @@
 import {useIsFocused} from '@react-navigation/native';
-import Header1x2x from 'components/atoms/header-home/header-1x-2x';
-import {InputWithIconNew} from 'components/atoms/inputs';
+import Header1x2x from 'components/atoms/headers/header-1x-2x';
+import {InputWithIconNew, SearchInput} from 'components/atoms/inputs';
 import {Row} from 'components/atoms/row';
 import ServiceCard from 'components/molecules/service-card';
 import {colors} from 'config/colors';
@@ -14,11 +14,13 @@ import Medium from 'typography/medium-text';
 import styles from './styles';
 import Bold from 'typography/bold-text';
 import CustomFlatList from 'components/atoms/custom-flatlist';
-import { SERVICE_LIST, SERVICE_LIST_NEW } from 'config/constants';
+import { PATIENT_LIST_DATA, SERVICE_LIST, SERVICE_LIST_NEW } from 'config/constants';
 import ChartComponent from 'components/molecules/rn-chart';
 import ServiceCardNew from 'components/molecules/service-card-new';
 import PatientsClaimsChart from 'components/molecules/rn-chart-bar';
-const HomeTab = props => {
+import { PrimaryButton } from 'components/atoms/buttons';
+import PatientManagementCard from 'components/molecules/patient-management-card';
+const PatientManagement = props => {
   const FilterDays = [
     {id: '1 Days'},
     {id: '5 Days'},
@@ -30,12 +32,12 @@ const HomeTab = props => {
     {id: '360 Days'},
   ];
   const {authorize, clearSession, user} = useAuth0();
-  // const user = useAppSelector(s => s?.user);
+
   const isFcous = useIsFocused();
-  // const userInfo = user?.userInfo;
-  // console.log('user==>', user);
-  const language = user?.language;
-  const dispatch = useAppDispatch();
+
+
+
+
   const {t} = i18n;
   // const {userInfo, unreadNotification, location} = user;
   // console.log('unreadNotification=>', unreadNotification);
@@ -57,8 +59,8 @@ const HomeTab = props => {
       // onPress={() => props?.navigation?.navigate(item?.screenName)}
     />
   );
-  const renderServiceListNew = ({item, index}) => (
-    <ServiceCardNew
+  const renderPatientList = ({item, index}) => (
+    <PatientManagementCard
     colortext={colors.primary}
       // backgroundColor={index % 1.5 === 0 ? colors.homecard2 : colors.homecard1}
       item={item}
@@ -70,91 +72,48 @@ const HomeTab = props => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1,paddingBottom:mvs(100)}}>
         <Header1x2x
-          back={false}
+          back={true}
+          // title={'Patients'}
           style={{backgroundColor: colors.transparent}}
         />
-        <Row
-          style={{
-            alignItems: 'center',
 
-            paddingHorizontal: mvs(20),
-          }}>
-          <Medium
-            label={`Hi, ${user?.nickname}`}
-            fontSize={mvs(20)}
-            color={colors.primary}
-          />
-        </Row>
+        <View style={{paddingVertical:mvs(10),justifyContent:"flex-end",alignItems:"flex-end",marginRight:mvs(10)}}>
+        <PrimaryButton
+                    containerStyle={{
+                      borderRadius: mvs(6),
+                      width:"30%",
+                      backgroundColor:colors.acceptcolor
+                    }}
+                  onPress={()=> navigate("AddPPatientScreen")}
+                  
+                    title={'Add Patient'}
+                  />
+        </View>
 
         <View style={styles.contentContainerStyle}>
           <View style={styles.contentContainerStyleNew}>
-            <Row style={{justifyContent: 'space-between'}}>
-              <Medium
-                label={'Pateint Overview'}
-                color={colors.black}
-                fontSize={mvs(18)}
-              />
-              <View>
-                <InputWithIconNew
-                  placeholder={'Filter'}
-                  onChangeText={id => setFilter(id)}
-                  value={filter}
-                  id={filter}
-                  items={FilterDays}
-                />
-              </View>
-            </Row>
+          <View style={{marginBottom: mvs(20)}}>
+              <SearchInput />
+            </View>
             <View style={styles.body}>
                 <CustomFlatList
+                horizontal
                   contentContainerStyle={styles.contentContainerStyle2}
                   showsVerticalScrollIndicator={false}
-                  data={SERVICE_LIST}
-                  renderItem={renderServiceList}
+                  data={PATIENT_LIST_DATA}
+                  renderItem={renderPatientList}
                   // columnWrapperStyle={{justifyContent: 'space-between'}}
                   ItemSeparatorComponent={itemSeparatorComponent()}
                 />
               </View>
-              <View style={styles.contentContainerStyleChart}>
-                <ChartComponent/>
-              </View>
-
-              <Row style={{justifyContent: 'space-between', marginVertical:mvs(20)}}>
-              <Medium
-                label={'Pateint Claims Insight'}
-                color={colors.black}
-                fontSize={mvs(18)}
-              />
-              <View>
-                <InputWithIconNew
-                  placeholder={'Filter'}
-                  onChangeText={id => setFilter(id)}
-                  value={filter}
-                  id={filter}
-                  items={FilterDays}
-                />
-              </View>
-            </Row>
-
-            <View style={styles.body}>
-                <CustomFlatList
-                  contentContainerStyle={styles.contentContainerStyle2}
-                  showsVerticalScrollIndicator={false}
-                  data={SERVICE_LIST_NEW}
-                  renderItem={renderServiceListNew}
-                  // columnWrapperStyle={{justifyContent: 'space-between'}}
-                  ItemSeparatorComponent={itemSeparatorComponent()}
-                />
-              </View>
-
-
-              <View style={styles.contentContainerStyleChartNew}>
-                <Medium  label={'Pateint Claims Chart'}
-                color={colors.black}
-                fontSize={mvs(28)}
-                style={{paddingBottom:mvs(10),marginLeft:mvs(20)}}/>
-                <PatientsClaimsChart/>
-              </View>
+          
             
+
+              
+
+           
+
+             
             
            
           </View>
@@ -163,4 +122,4 @@ const HomeTab = props => {
     </View>
   );
 };
-export default HomeTab;
+export default PatientManagement;

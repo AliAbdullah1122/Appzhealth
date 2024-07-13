@@ -7,8 +7,11 @@ import React from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Medium from 'typography/medium-text';
-
-const DropdownModal = ({
+import PrimaryInput, {
+  InputWithIcon,
+  PrimaryPhoneInput,
+} from 'components/atoms/inputs';
+const PatientManagemetDropdownModal = ({
   style = {},
   value,
   visible = false,
@@ -16,6 +19,18 @@ const DropdownModal = ({
   onChangeText,
   items = [],
 }) => {
+  const [search, setSearch] = React.useState('');
+
+  // Function to handle search input
+  const handleSearch = (text) => {
+    setSearch(text);
+  };
+
+  // Filtered items based on search input
+  const filteredItems = items.filter((item) =>
+    item.id.includes(search)
+  );
+  
   return (
     <ModalWrapper
       onBackdropPress={() => onClose()}
@@ -30,16 +45,32 @@ const DropdownModal = ({
         <Medium
           numberOfLines={2}
           style={styles.pick}
-          label={'Select Insurance'}
+          label={'Serach and Select'}
           color={colors.black}
         />
+        <View style={{paddingVertical:mvs(0),marginTop:mvs(20)}}>
+        <PrimaryInput
+                    keyboardType={'email-address'}
+                    placeholder={t('Search')}
+          value={search}
+          onChangeText={handleSearch}
+          containerStyle={{
+            width:'90%',
+            alignSelf:"center",
+            borderWidth:1,
+            borderColor:colors.primary,
+            borderRadius:mvs(10),
+          }}
+                  
+                  />
+                  </View>
         <ScrollView
           contentContainerStyle={{
             flexGrow: 1,
             paddingHorizontal: mvs(20),
             paddingTop: mvs(10),
           }}>
-          {items?.map((item, index) => {
+          {filteredItems?.map((item, index) => {
             return (
               <TouchableOpacity
                 key={index}
@@ -72,7 +103,7 @@ const DropdownModal = ({
     </ModalWrapper>
   );
 };
-export default DropdownModal;
+export default PatientManagemetDropdownModal;
 const styles = StyleSheet.create({
   contentContainerStyle: {
     width: '100%',

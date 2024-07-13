@@ -8,7 +8,7 @@ import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Medium from 'typography/medium-text';
 
-const DropdownModal = ({
+const PolicyDropdownModal = ({
   style = {},
   value,
   visible = false,
@@ -16,6 +16,7 @@ const DropdownModal = ({
   onChangeText,
   items = [],
 }) => {
+  
   return (
     <ModalWrapper
       onBackdropPress={() => onClose()}
@@ -30,7 +31,7 @@ const DropdownModal = ({
         <Medium
           numberOfLines={2}
           style={styles.pick}
-          label={'Select Insurance'}
+          label={'Select Policy Relationship'}
           color={colors.black}
         />
         <ScrollView
@@ -72,7 +73,7 @@ const DropdownModal = ({
     </ModalWrapper>
   );
 };
-export default DropdownModal;
+export default PolicyDropdownModal;
 const styles = StyleSheet.create({
   contentContainerStyle: {
     width: '100%',

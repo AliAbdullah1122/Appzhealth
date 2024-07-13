@@ -32,6 +32,7 @@ import BankDetailsScreen from 'screens/bank-details';
 import CartScreen from 'screens/cart';
 import CompanyDetailsScreen from 'screens/company-details';
 import ContactUsScreen from 'screens/contact-us';
+import DiscoveryScreen from 'screens/patient-maangement-screen';
 import GoodsInTransitScreen from 'screens/goods-in-transit';
 import HistoryScreen from 'screens/history';
 import InboxScreen from 'screens/inbox-screen';
@@ -46,8 +47,8 @@ import SignupCard from 'screens/signup-part-3';
 import TermsandConditionsScreen from 'screens/terms-and-conditions';
 import UpdateProfileScreen from 'screens/update_profile';
 import UploadDocumentsScreen from 'screens/upload-documents';
-import UserTab from 'screens/user-tab';
 import VehicleInsuranceScreen from 'screens/vehicle-insurance';
+import { PatientStack } from './patient-navigation/patient-stack';
 
 const Stack = createNativeStackNavigator();
 
@@ -65,7 +66,7 @@ export const RootNavigator = () => {
         screenOptions={horizontalAnimation}>
         <Stack.Group>
           <Stack.Screen name="Splash" component={Splash} />
-          <Stack.Screen name="UserTab" component={UserTab} />
+          {/* <Stack.Screen name="UserTab" component={UserTab} /> */}
           <Stack.Screen name="Onboarding" component={Onboarding} />
           <Stack.Screen name="ContactUsScreen" component={ContactUsScreen} />
           <Stack.Screen name="Me" component={Me} />
@@ -156,7 +157,11 @@ export const RootNavigator = () => {
             name="AdviceFromUsScreen"
             component={AdviceFromUsScreen}
           />
-          {/* <Stack.Screen name="ShoppingScreen" component={ShoppingScreen} /> */}
+          {/* <Stack.Screen
+            name="PatientScreen"
+            component={PatientScreen}
+          /> */}
+  
           <Stack.Screen
             name="DriverLoginScreen"
             component={DriverLoginScreen}
@@ -165,12 +170,15 @@ export const RootNavigator = () => {
             name="WhereToMoveScreen"
             component={WhereToMoveScreen}
           />
+          <Stack.Screen
+            name="DiscoveryScreen"
+            component={DiscoveryScreen}
+          />
         </Stack.Group>
-        {/* location group */}
-        {/* <Stack.Group>
-          <Stack.Screen name="LocationSetup" component={LocationSetup} />
-        </Stack.Group> */}
+
+        
         <Stack.Screen name="Drawer" component={DrawerNavigation} />
+        <Stack.Screen name="PatientStack" component={PatientStack} />
         <Stack.Screen name="DriverSignup" component={DriverSignup} />
       </Stack.Navigator>
     </View>

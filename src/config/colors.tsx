@@ -15,9 +15,11 @@ export const colors = {
   homecard2: '#D31E1E12',
   simplegrey:"#edeaf1"
 ,  // black: '#706561',
+chartlinecolor:"#e3e3e3",
+chartgradientcolor:"#4caf50",
   red: '#ff0707',
   grey: '#707070',
-  gray: '#ECECEC',
+  gray: '#b3b3b3',
   green: '#0DC183',
   transparent: 'transparent',
   yellow: '#ffd79c',
@@ -33,7 +35,7 @@ export const colors = {
     shadowRadius: 2.22,
     elevation: 3,
   },
-  bluecolor: '#00ACDD',
+  bluecolor: '#3677cc',
 };
 export const darkTheme = {
   border: '#E8E8E8',

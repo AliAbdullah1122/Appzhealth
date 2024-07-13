@@ -28,31 +28,7 @@ const CustomDrawerContent = props => {
   // const userInfo = user?.userInfo;
   const dispatch = useAppDispatch();
 
-  const ChangeStatus = async () => {
-    try {
-      // Toggle the online_status between 0 and 1
-      const newStatus = '0';
-
-      // Make the API call with the new status
-      const res = await getStatusChange(newStatus);
-
-      // Update the userInfo with the new status
-      const updatedUserInfo = {...userInfo, online_status: newStatus};
-
-      // Update user info in AsyncStorage and Redux store
-      await AsyncStorage.setItem(
-        STORAGEKEYS.user,
-        JSON.stringify(updatedUserInfo),
-      );
-      dispatch(setUserInfo(updatedUserInfo));
-
-      console.log(' resp==========>', res);
-    } catch (error) {
-      console.log('Error:', UTILS.returnError(error));
-      Alert.alert('Error', UTILS.returnError(error));
-    }
-  };
-
+  
   const {user,clearSession} = useAuth0();
   console.log(user)
   
@@ -147,14 +123,16 @@ const onPressLogout = async () => {
         />
 
         <DrawerHomeCard
-          onPress={() => navigate('UploadDocumentsScreen')}
+          onPress={() =>
+            props?.navigation?.navigate('PatientStack')
+          }
           icon1={IMG.patients}
           label1={'Patients'}
           // br={8}
           containerStyle={styles.helpStyle}
         />
         <DrawerHomeCard
-          onPress={() => navigate('HistoryScreen')}
+          onPress={() => navigate('DiscoveryScreen')}
           icon1={IMG.discovery}
           label1={'Discovery'}
           containerStyle={styles.helpStyle}
@@ -173,7 +151,7 @@ const onPressLogout = async () => {
           containerStyle={styles.helpStyle}
         />
          <DrawerHomeCard
-          onPress={() => navigate('Me')}
+          onPress={() => navigate('UserTab')}
           icon1={IMG.user}
           label1={t('my_profile')}
           containerStyle={styles.helpStyle}

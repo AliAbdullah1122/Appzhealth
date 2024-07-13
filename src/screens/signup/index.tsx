@@ -31,8 +31,10 @@ import {FacBookIcon, GoogleIcon} from 'assets/icons';
 import {Checkbox} from 'components/atoms/checkbox';
 import CountryCodemOdal from 'components/molecules/modals/country-code-modal';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {setCountries} from 'store/reducers/user-reducer';
-Geocoder.init('AIzaSyDGDrN2RHbsqaNEuO0mCN3-MaqtzHgFgmA');
+import { useAuth0 } from 'react-native-auth0';
+import HeaderProfile from 'components/atoms/headers/header-profile';
+// import {setCountries} from 'store/reducers/user-reducer';
+Geocoder.init('AIzaSyBxP_tL24fzdEqNKA5kicip7vyAExtNdPE');
 
 type props = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 
@@ -41,75 +43,89 @@ const Signup = (props: props) => {
   const [value, setValue] = React.useState('');
   const [selectedGender, setSelectedGender] = React.useState('');
   const [countrycodeModal, setCountryCodeModal] = React.useState(false);
-
+  const {user} = useAuth0();
+  console.log(user)
   const {navigation} = props;
   const {t} = i18n;
-  const {user} = useAppSelector(s => s);
-  const {location, countries} = user;
-  console.log('location=>>>', location);
+  // const {user} = useAppSelector(s => s);
+  // const {location, countries} = user;
+  // console.log('location=>>>', location);
   const dispatch = useAppDispatch();
-  const initialValues = {
-    first_name: '',
-    middle_name: '',
-    surname: '',
-    email: '',
-    phone: '',
-    confirm_password: '',
-    password: '',
 
-    gender: 'male',
+  const initialValues = {
+    first_name: '' || user?.name,
+    last_name:'' || user?.email,
+    email: '' || user?.email,
+    phone: '',
+    doctor_npi:'',
+    practice_npi:'',
+    practice_address:'',
+    practice_city:'',
+    practice_state:'',
+    job_title:''
   };
   const [loading, setLoading] = React.useState(false);
 
-  const handleFormSubmit = async values => {
-    // dispatch(onSignup(values, setLoading));
-    navigate('SignupNext', {
-      ...values,
-      country_code: countries?.find(x => x?.selected)?.code || 'GB',
-    });
-    {
-      console.log('values form siubmit', values);
-    }
-  };
-  React.useEffect(() => {
-    getCountryCodeDetails();
-  }, []);
-  const getCountryCodeDetails = async () => {
-    try {
-      dispatch(getCountryCode());
-      // setLoading(false);
-      // setCountryCode(res);
-      // console.log('couyntey code', res);
-    } catch (error) {
-      // setLoading(false);
-    }
-  };
+  // const handleFormSubmit = async values => {
+  //   // dispatch(onSignup(values, setLoading));
+  //   navigate('SignupNext', {
+  //     ...values,
+  //     country_code: countries?.find(x => x?.selected)?.code || 'GB',
+  //   });
+  //   {
+  //     console.log('values form siubmit', values);
+  //   }
+  // };
+  // React.useEffect(() => {
+  //   getCountryCodeDetails();
+  // }, []);
+  // const getCountryCodeDetails = async () => {
+  //   try {
+  //     dispatch(getCountryCode());
+  //     // setLoading(false);
+  //     // setCountryCode(res);
+  //     // console.log('couyntey code', res);
+  //   } catch (error) {
+  //     // setLoading(false);
+  //   }
+  // };
   return (
     <View style={styles.container}>
-      <Image source={IMG.LogoBackground} style={styles.logobackground} />
-      <Header1x2x />
-      <View style={{alignSelf: 'center'}}>
+      {/* <Image source={IMG.LogoBackground} style={styles.logobackground} /> */}
+      <HeaderProfile title={'Profile Registration'} />
+      {/* <View style={{alignSelf: 'center'}}>
         <Image
           source={IMG.LoginLogo}
           resizeMode={'contain'}
           style={{width: mvs(300), height: mvs(100)}}
         />
-      </View>
+      </View> */}
       <View style={styles.contentContainerStyle}>
         <KeyboardAvoidScrollview
           contentContainerStyle={styles.keyboardcontentcontainer}>
-          <View style={styles.contentContainerStyleNew}>
+          <View
+          //  style={styles.contentContainerStyleNew}
+          >
             <Bold
-              label={t('signup_to_movers')}
-              color={colors.bluecolor}
-              fontSize={mvs(16)}
+              label={'Welcome to App Z Health'}
+              color={colors.black}
+              fontSize={mvs(18)}
               style={styles.boldtext}
+            />
+            <Medium
+              label={
+                'In order to continue, we need you to verify and complete the below information. Not all fields are required. Additional fields help narrow your search results.'
+              }
+              numberOfLines={10}
+              color={colors.black}
+              style={styles.mediumtext}
             />
 
             <Formik
               initialValues={initialValues}
               validationSchema={signupFormValidation}
-              onSubmit={handleFormSubmit}>
+              // onSubmit={handleFormSubmit}
+            >
               {({
                 handleChange,
                 handleBlur,
@@ -122,215 +138,122 @@ const Signup = (props: props) => {
               }) => (
                 <>
                   {console.log(errors, isValid, touched)}
-                  <PrimaryInput
-                    error={touched?.first_name ? t(errors.first_name) : ''}
-                    placeholder={t('first_name')}
-                    onChangeText={handleChange('first_name')}
-                    onBlur={handleBlur('first_name')}
-                    value={values.first_name}
-                  />
-                  <PrimaryInput
-                    // error={touched?.middle_name ? t(errors.middle_name) : ''}
-                    placeholder={t('middle_name')}
-                    onChangeText={handleChange('middle_name')}
-                    onBlur={handleBlur('middle_name')}
-                    value={values.middle_name}
-                  />
-                  <PrimaryInput
+                  
+                  
+                  {/* <PrimaryInput
                     keyboardType={'email-address'}
                     error={touched?.surname ? t(errors.surname) : ''}
                     placeholder={t('surname')}
                     onChangeText={handleChange('surname')}
                     onBlur={handleBlur('surname')}
                     value={values.surname}
-                  />
-                  <Row style={{marginBottom: mvs(20)}}>
-                    <PrimaryButton
-                      title={t('male')}
-                      containerStyle={{
-                        width: mvs(88),
-                        height: mvs(39),
-                        backgroundColor:
-                          values?.gender === 'male'
-                            ? colors.bluecolor
-                            : colors.white,
-                        borderColor: colors.bluecolor,
-                        borderWidth: 1,
-                      }}
-                      textStyle={{
-                        color:
-                          values?.gender === 'male'
-                            ? colors.white
-                            : colors.black,
-                      }}
-                      onPress={() => setFieldValue('gender', 'male')}
-                    />
-                    <PrimaryButton
-                      title={t('female')}
-                      containerStyle={{
-                        width: mvs(88),
-                        height: mvs(39),
-                        backgroundColor:
-                          values?.gender === 'female'
-                            ? colors.bluecolor
-                            : colors.white,
-                        borderColor: colors.bluecolor,
-                        borderWidth: 1,
-                      }}
-                      textStyle={{
-                        color:
-                          values?.gender === 'female'
-                            ? colors.white
-                            : colors.black,
-                      }}
-                      onPress={() => setFieldValue('gender', 'female')}
-                    />
-                    <PrimaryButton
-                      title={t('other')}
-                      containerStyle={{
-                        width: mvs(88),
-                        height: mvs(39),
-                        backgroundColor:
-                          values?.gender === 'other'
-                            ? colors.bluecolor
-                            : colors.white,
-                        borderColor: colors.bluecolor,
-                        borderWidth: 1,
-                      }}
-                      textStyle={{
-                        color:
-                          values?.gender === 'other'
-                            ? colors.white
-                            : colors.black,
-                      }}
-                      onPress={() => setFieldValue('gender', 'other')}
-                    />
-                  </Row>
+                  /> */}
+
                   <PrimaryInput
                     keyboardType={'email-address'}
                     error={touched?.email ? t(errors.email) : ''}
                     placeholder={t('email')}
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
-                    value={values.email}
+                    value={values.email }
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
                   />
                   <PrimaryInput
-                    isPassword
-                    keyboardType={'email-address'}
-                    error={touched?.password ? t(errors.password) : ''}
-                    placeholder={t('password')}
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
+
+                    // isPassword
+                    keyboardType={'number-pad'}
+                    error={touched?.phone ? t(errors.phone) : ''}
+                    placeholder={'Phone *'}
+                    onChangeText={handleChange('phoe')}
+                    onBlur={handleBlur('phone')}
+                    value={values.phone}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
                   />
                   <PrimaryInput
-                    isPassword
-                    keyboardType={'email-address'}
-                    error={
-                      touched?.confirm_password
-                        ? t(errors.confirm_password)
-                        : ''
-                    }
-                    placeholder={t('confirm_password')}
-                    onChangeText={handleChange('confirm_password')}
-                    onBlur={handleBlur('confirm_password')}
-                    value={values.confirm_password}
+                    error={touched?.first_name ? t(errors.first_name) : ''}
+                    placeholder={t('first_name')}
+                    onChangeText={handleChange('first_name')}
+                    onBlur={handleBlur('first_name')}
+                    value={values.first_name }
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
                   />
-                  <Row>
-                    <Row
-                      style={{
-                        borderWidth: 1,
-                        height: mvs(45),
-                        borderRadius: mvs(10),
-                        borderColor: colors.bluecolor,
-                        padding: mvs(10),
-                        width: '25%',
-                      }}>
-                      <Medium
-                        label={countries?.find(x => x?.selected)?.code || 'GB'}
-                        color={colors.black}
-                      />
-
-                      {/* <Medium
-                        label={`${
-                          countries?.find(x => x?.selected)?.code || 'PK'
-                        } (${
-                          countries?.find(x => x?.selected)?.phone_code || '+92'
-                        })`}
-                      /> */}
-
-                      <TouchableOpacity
-                        onPress={() => setCountryCodeModal(true)}>
-                        <AntDesign
-                          name={'caretdown'}
-                          size={mvs(20)}
-                          color={colors.bluecolor}
-                        />
-                      </TouchableOpacity>
-                    </Row>
-                    <Row
-                      style={{
-                        borderWidth: 1,
-                        height: mvs(45),
-                        borderRadius: mvs(10),
-                        borderColor: colors.bluecolor,
-                        padding: mvs(10),
-                        // width: '15%',
-                      }}>
-                      <Medium
-                        label={
-                          countries?.find(x => x?.selected)?.phone_code || '44'
-                        }
-                        color={colors.black}
-                      />
-                    </Row>
-                    <PrimaryInput
-                      mainContainer={{
-                        width: '50%',
-                      }}
-                      errorStyle={{
-                        color: colors.red,
-                        fontSize: mvs(10),
-                        marginBottom: mvs(5),
-                        marginHorizontal: mvs(5),
-                        // Add or override any styles specific to this error instance
-                      }}
-                      numberOfLines={3}
-                      containerStyle={{borderRadius: mvs(10)}}
-                      keyboardType={'number-pad'}
-                      error={touched?.phone ? `${t(errors.phone)}` : ''}
-                      // error={touched?.phone ? t(errors.phone) : ''}
-                      placeholder={t('phone')}
-                      onChangeText={handleChange('phone')}
-                      onBlur={handleBlur('phone')}
-                      value={values.phone}
-                    />
-                  </Row>
-                  <Row style={{marginBottom: mvs(10)}}>
-                    <Checkbox checked />
-
-                    <Medium
-                      fontSize={mvs(10)}
-                      label={t('i_agree to the,')}
-                      numberOfLines={2}
-                      color={colors.placeholder}
-                      style={styles.IAgreeView}>
-                      <Medium
-                        onPress={() => navigate('TermsandConditionsScreen')}
-                        numberOfLines={2}
-                        fontSize={mvs(10)}
-                        label={t('terms_and_conditions')}
-                        color={colors.bluecolor}>
-                        <Medium
-                          onPress={() => navigate('PrivacyPolicyScreen')}
-                          numberOfLines={2}
-                          fontSize={mvs(10)}
-                          label={t('return_policy & private_policy')}
-                          color={colors.bluecolor}
-                        />
-                      </Medium>
-                    </Medium>
-                  </Row>
+                  <PrimaryInput
+                    error={touched?.last_name ? t(errors.last_name) : ''}
+                    placeholder={'Last Name'}
+                    onChangeText={handleChange('last_name')}
+                    onBlur={handleBlur('last_name')}
+                    value={values.last_name }
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  <PrimaryInput
+                    error={touched?.doctor_npi ? t(errors.doctor_npi) : ''}
+                    placeholder={'Doocctor NPI *'}
+                    onChangeText={handleChange('doctor_npi')}
+                    onBlur={handleBlur('doctor_npi')}
+                    value={values.doctor_npi}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  <PrimaryInput
+                    error={touched?.practice_npi ? t(errors.practice_npi) : ''}
+                    placeholder={'Practice NPI'}
+                    onChangeText={handleChange('practice_npi')}
+                    onBlur={handleBlur('practice_npi')}
+                    value={values.practice_npi}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  
+                  <PrimaryInput
+                    error={touched?.practice_city ? t(errors.practice_city) : ''}
+                    placeholder={'Practice City'}
+                    onChangeText={handleChange('practice_city')}
+                    onBlur={handleBlur('practice_city')}
+                    value={values.practice_city}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  <PrimaryInput
+                    error={touched?.practice_state ? t(errors.practice_state) : ''}
+                    placeholder={'Practice State'}
+                    onChangeText={handleChange('practice_state')}
+                    onBlur={handleBlur('practice_state')}
+                    value={values.practice_state}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  <PrimaryInput
+                    error={touched?.job_title ? t(errors.job_title) : ''}
+                    placeholder={'Job Title'}
+                    onChangeText={handleChange('job_title')}
+                    onBlur={handleBlur('job_title')}
+                    value={values.job_title}
+                    containerStyle={{
+                      borderWidth:0,
+                      borderBottomWidth:1
+                    }}
+                  />
+                  
 
                   <PrimaryButton
                     containerStyle={{
@@ -338,7 +261,7 @@ const Signup = (props: props) => {
                     }}
                     loading={loading}
                     onPress={handleSubmit}
-                    title={t('next')}
+                    title={'Register Now'}
                   />
                 </>
               )}
@@ -346,15 +269,6 @@ const Signup = (props: props) => {
           </View>
         </KeyboardAvoidScrollview>
       </View>
-      <CountryCodemOdal
-        items={countries}
-        setItems={items => {
-          console.log('items', items);
-          dispatch(setCountries(items));
-        }}
-        visible={countrycodeModal}
-        onClose={() => setCountryCodeModal(false)}
-      />
     </View>
   );
 };

@@ -33,9 +33,9 @@ const ChartComponent = () => {
         height={mvs(280)}
         yAxisLabel=""
         chartConfig={{
-          backgroundColor: '#ffffff',
-          backgroundGradientFrom: '#ffffff',
-          backgroundGradientTo: '#ffffff',
+          backgroundColor: colors.white,
+          backgroundGradientFrom: colors.white,
+          backgroundGradientTo: colors.white,
           decimalPlaces: 0,
           color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -45,11 +45,11 @@ const ChartComponent = () => {
           propsForDots: {
             r: '6',
             strokeWidth: '1',
-            stroke: '#ffffff',
+            stroke:colors.white,
           },
           propsForBackgroundLines: {
             strokeDasharray: '', // Solid background lines
-            stroke: '#e3e3e3', // Light grey lines
+            stroke:colors.chartlinecolor, // Light grey lines
           },
           fillShadowGradient:colors.white, // background color for the area under the curve
           fillShadowGradientOpacity: 0,  // setting opacity to make it fully white
