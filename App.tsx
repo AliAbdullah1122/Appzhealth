@@ -12,6 +12,8 @@ import './src/config/axios-interceptor';
 import 'translation';
 import Toast from 'react-native-toast-message';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
+import { PaperProvider } from 'react-native-paper';
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [initialRoute, setInitialRoute] = useState<string | undefined>(
@@ -62,9 +64,12 @@ const App = () => {
     <SafeAreaProvider style={{flex: 1}}>
       <Auth0Provider domain={"dev-rfp1yizaltfjs3dc.us.auth0.com"} clientId={"Svun7aHQMs9pM0hMISr3WQ8sSUM6iDTC"}>
       <Provider store={store}>
+
+      <PaperProvider>
         <NavigationContainer ref={navigationRef} linking={linking}>
           <RootNavigator />
         </NavigationContainer>
+        </PaperProvider>
       </Provider>
       </Auth0Provider>
       <Toast />

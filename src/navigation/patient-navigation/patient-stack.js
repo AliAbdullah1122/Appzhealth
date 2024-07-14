@@ -14,6 +14,7 @@ import AppointmentsScreen from 'screens/appointments';
 import ImportPatientScreen from 'screens/import-patient';
 import PatientSyncScreen from 'screens/patient-sync';
 import PatientManagement from 'screens/patient-maangement-screen';
+import ViewPatientDetailsScreen from 'screens/view-patient-detail';
 const Stack = createNativeStackNavigator();
 
 export const PatientStack = props => {
@@ -30,6 +31,7 @@ export const PatientStack = props => {
         <Stack.Screen name="AppointmentsScreen" component={AppointmentsScreen} />
         <Stack.Screen name="ImportPatientScreen" component={ImportPatientScreen} />
         <Stack.Screen name="PatientSyncScreen" component={PatientSyncScreen} />
+        <Stack.Screen name="ViewPatientDetailsScreen" component={ViewPatientDetailsScreen} />
       </Stack.Navigator>
     </View>
   );

@@ -20,6 +20,7 @@ import ServiceCardNew from 'components/molecules/service-card-new';
 import PatientsClaimsChart from 'components/molecules/rn-chart-bar';
 import { PrimaryButton } from 'components/atoms/buttons';
 import { navigate } from 'navigation/navigation-ref';
+import HeaderAddPatient from 'components/atoms/headers/header-add-patient-';
 const PatientScreen = props => {
   const FilterDays = [
     {id: '1 Days'},
@@ -69,25 +70,14 @@ const PatientScreen = props => {
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1,paddingBottom:mvs(100)}}>
-        <Header1x2x
+        <HeaderAddPatient
           back={true}
           // title={'Patients'}
           style={{backgroundColor: colors.transparent}}
+          onPress={() => navigate('AddPPatientScreen')}
         />
 
-        <View style={{paddingVertical:mvs(10),justifyContent:"flex-end",alignItems:"flex-end",marginRight:mvs(10)}}>
-        <PrimaryButton
-                    containerStyle={{
-                      borderRadius: mvs(6),
-                      width:"30%",
-                      backgroundColor:colors.acceptcolor
-                    }}
-                    onPress={()=>navigate('AddPatientScreen')}
-                  
-                  
-                    title={'Add Patient'}
-                  />
-        </View>
+        
 
         <View style={styles.contentContainerStyle}>
           <View style={styles.contentContainerStyleNew}>

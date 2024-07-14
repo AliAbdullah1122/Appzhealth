@@ -14,17 +14,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Medium from 'typography/medium-text';
 import {Row} from '../row';
 import {SearchInput} from '../inputs';
-const HeaderX = ({
+import { PrimaryButton } from '../buttons';
+const HeaderAddPatient = ({
   style = {},
-  styletitle = {},
   mtop = 0,
   title,
   back = true,
   homeback = false,
+  patientButton= true,
   onChangeText = t => {},
   isSearch = false,
   isMenu = false,
   placeholder = 'Search here',
+  onPress = () => {},
   ...props
 }) => {
   const navigation = useNavigation();
@@ -61,8 +63,8 @@ const HeaderX = ({
           </TouchableOpacity>
         )}
 
-        {title ? (
-          <Medium fontSize={mvs(20)} label={title} style={[styles.title,styletitle]} />
+         {title ? (
+          <Medium fontSize={mvs(20)} label={title} style={[styles.title]} />
         ) : (
           <Image
             source={{
@@ -70,8 +72,29 @@ const HeaderX = ({
             }}
             style={{width: mvs(60), height: mvs(30), resizeMode: 'cover'}}
           />
-        )}
-        <View style={styles.empty} />
+        )} 
+     {patientButton 
+     &&
+      // <View
+      //     style={{
+      //       paddingVertical: mvs(10),
+      //       justifyContent: 'flex-end',
+      //       alignItems: 'flex-end',
+      //       marginRight: mvs(10),
+      //     }}>
+          <PrimaryButton
+            containerStyle={{
+              borderRadius: mvs(6),
+              width: '30%',
+              backgroundColor: colors.acceptcolor,
+            }}
+            onPress={onPress}
+            title={'Add Patient'}
+          />
+        // </View>
+        }
+        
+        {/* <View style={styles.empty} /> */}
       </Row>
       {isSearch && (
         <SearchInput
@@ -80,6 +103,7 @@ const HeaderX = ({
           mtop={mtop}
         />
       )}
+ 
       {/* {homeback && (
         <TouchableOpacity
           // style={{
@@ -98,7 +122,7 @@ const HeaderX = ({
     </View>
   );
 };
-export default React.memo(HeaderX);
+export default React.memo(HeaderAddPatient);
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primary,

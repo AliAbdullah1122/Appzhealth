@@ -39,6 +39,16 @@ const PatientManagementCard = ({
     //   style={styles.container}>
      
      <View onPress={onPress} style={styles.contentContainerStyleNew2}>
+      <Row>
+        <Medium label={item?.id}/>
+        <Medium  label={item?.appt}/>
+        <Medium label={item?.patient}/>
+        <Medium  label={item?.phone}/>
+        <Medium label={item?.copay}/>
+        <Medium  label={item?.deductable}/>
+        <Medium label={item?.insurance}/>
+        <Medium  label={item?.status}/>
+      </Row>
               {/* <View
                 style={{
                   width: mvs(50),
@@ -66,37 +76,7 @@ const PatientManagementCard = ({
                 fontSize={mvs(18)}
                 style={{marginTop: mvs(15)}}
               /> */}
-              <Row style={{justifyContent:"space-between",alignItems:"center"}}>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'ID#'}/>
-                </View>
-                <View 
-                style={{width:mvs(150)}}
-                >
-                <Medium label={'Appt'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Patient'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Phone'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Copay'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Deductible'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Insurance'}/>
-                </View>
-                <View style={{width:mvs(150)}}>
-                <Medium label={'Status'}/>
-                </View>
-                <Row>
-                  
-                </Row>
-              </Row>
+             
             </View>
 
     //  </TouchableOpacity>
@@ -122,15 +102,15 @@ const styles = StyleSheet.create({
     paddingVertical: mvs(20),
     backgroundColor: colors.white,
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
 
-    elevation: 5,
+    // elevation: 5,
     borderRadius: mvs(20),
     // borderWidth:1,
     // borderColor:colors.simplegrey

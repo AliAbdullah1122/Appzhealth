@@ -61,6 +61,7 @@ type props = {
   isPassword?: boolean;
   isCalendar?: boolean;
   editable?: boolean;
+  disbaledicon?: boolean;
   disabledSearch?: boolean;
   error?: string;
   id?: any;
@@ -266,6 +267,7 @@ const PrimaryInputPatient = (props: props) => {
     error,
     mainContainer,
     editable = true,
+    disbaledicon= true,
     onBlur = () => {},
     onPressIn = () => {},
     isRequired = false,
@@ -320,6 +322,7 @@ const PrimaryInputPatient = (props: props) => {
         {isCalendar && (
           <TouchableOpacity
             style={styles.PasswordIcon}
+            disabled={disbaledicon}
             // onPress={() => setSecure(!secure)}
             onPress={showDatePicker}>
             <FontAwesome size={20} name={'calendar'} color={colors.black} />

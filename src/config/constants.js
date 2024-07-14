@@ -76,183 +76,209 @@ export const ONBOARDING_LIST = [
 export const SERVICE_LIST = [
   {
     icon: IMG.HomeCartTool,
-    title: 'New Patient Added',
-    number:"800",
+    title: 'New first_name Added',
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
+
   {
     icon: IMG.HomeCartTool,
     title: 'Patiennt Having Insurance',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
+
   {
     icon: IMG.HomeCartTool,
-    title: 'Patient Missing Insurance',
-    number:"800",
+    title: 'first_name Missing Insurance',
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
-  
 ];
 export const SERVICE_LIST_NEW = [
   {
     icon: IMG.HomeCartTool,
     title: 'Number of paid claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
+
   {
     icon: IMG.HomeCartTool,
     title: 'Value of paid claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
+
   {
     icon: IMG.HomeCartTool,
     title: 'Number of Denied Claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
   {
     icon: IMG.HomeCartTool,
     title: 'Value of Denied Claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
   {
     icon: IMG.HomeCartTool,
     title: 'Number of pending Claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
   {
     icon: IMG.HomeCartTool,
     title: 'Value of pending Claims',
-    number:"800",
+    number: '800',
     screenName: 'MyOrderScreen',
   },
-  
-  
+];
+export const PATIENT_LIST_TITLE = [
+  {
+    title: 'ID#',
+    title2: 'Appt',
+    title3: 'first_name',
+    title4: 'Phone',
+    title5: 'Deductible',
+    title6: 'Insurance',
+    title7: 'Status',
+    title8:'     '
+  },
+  // {
+  //   title: 'Appt',
+  // },
+  // {
+  //   title: 'first_name',
+  // },
+  // {
+  //   title: 'Phone',
+  // },
+  // {
+  //   title: 'Deductible',
+  // },
+  // {
+  //   title: 'Insurance',
+  // },
+  // {
+  //   title: 'Status',
+  // },
+  // {
+  //   title: ' ',
+  // },
 ];
 export const PATIENT_LIST_DATA = [
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647260',
+    appt: 'apoinntmennt',
+    first_name: 'usama',
+    last_name:"ghafffar",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
+  },
+  {
+    id: '#63746723647261',
+    appt: 'apoinntmennt',
+    first_name: 'ali',
+    last_name:'abdullah'
+,    phone: '800d678',
+    copay: 'copay',
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
+  },
+  {
+    id: '#63746723647262',
+    appt: 'apoinntmennt',
+    first_name: 'momna',
+    last_name:'sajjad',
+    phone: '800d678',
+    copay: 'copay',
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
+  },
+  {
+    id: '#63746723647263',
+    appt: 'apoinntmennt',
+    first_name: 'mohsin',
+    last_name:'khattak',
+    phone: '800d678',
+    copay: 'copay',
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
     id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    appt: 'apoinntmennt',
+    first_name: 'zain',
+    last_name:"kokhar",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647265',
+    appt: 'apoinntmennt',
+    first_name: 'saima',
+    last_name:"shammas",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647266',
+    appt: 'apoinntmennt',
+    first_name: 'aqib',
+    last_name:"khan",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647267',
+    appt: 'apoinntmennt',
+    first_name: 'ali',
+    last_name:'ahmad',
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647268',
+    appt: 'apoinntmennt',
+    first_name: 'hameed',
+    last_name:"bilal",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
   {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
+    id: '#63746723647269',
+    appt: 'apoinntmennt',
+    first_name: 'shery',
+    last_name:"shahid",
+    phone: '800d678',
     copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
+    dedecutable: 'deductable',
+    insurance: 'insurance',
+    status: 'sttuas',
   },
-  {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
-    copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
-  },
-  {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
-    copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
-  },
-  {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
-    copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
-  },
-  {
-    id: '#63746723647264',
-    appt:'apoinntmennt',
-    patient: 'usama',
-    phone:"800d678",
-    copay: 'copay',
-    dedecutable:"deductable",
-    insurance:"insurance",
-    status:'sttuas'
-  },
-  
-
-  
   
 ];
 export const MANAGE_CAR_LIST = [

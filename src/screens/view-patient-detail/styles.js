@@ -80,8 +80,6 @@ const styles = StyleSheet.create({
 
   body: {
     flex: 1,
-    borderWidth:1,borderRadius:mvs(10),
-    borderColor:colors.gray
   },
   lan: {
     height: mvs(120),
@@ -125,24 +123,6 @@ const styles = StyleSheet.create({
     height: mvs(17),
     width: mvs(20),
     borderRadius: mvs(10),
-  },
-  item: {
-    flexDirection: 'row',
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  id: {
-    flex: 1,
-  },
-  name: {
-    flex: 2,
-  },
-  insurance: {
-    flex: 2,
-  },
-  status: {
-    flex: 1,
   },
 });
 export default styles;
