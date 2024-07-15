@@ -180,6 +180,7 @@ const AddPatientScreen = props => {
                       isCalendar
                       label="Required"
                       isRequired
+                      disbaledicon={false}
                       // maximumDate={new Date()}
                       editable={false}
                       error={touched?.dob ? errors.dob : ''}
@@ -187,9 +188,7 @@ const AddPatientScreen = props => {
                       onChangeText={value => {
                         setFieldValue('dob', value);
                       }}
-                      onBlur={() => {
-                        setFieldTouched('dob', true);
-                      }}
+                     
                       value={values.dob}
                     />
                   </DatePicker>
@@ -221,14 +220,13 @@ const AddPatientScreen = props => {
                     <PrimaryInputPatient
                       isCalendar
                       editable={false}
+                      disbaledicon={false}
                       error={touched?.appointment_date ? errors.appointment_date : ''}
                       placeholder={'Appointment Date'}
                       onChangeText={value => {
                         setFieldValue('appointment_date', value);
                       }}
-                      onBlur={() => {
-                        setFieldTouched('appointment_date', true);
-                      }}
+                     
                       value={values.appointment_date}
                     />
                   </DatePicker>

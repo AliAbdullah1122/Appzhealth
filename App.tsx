@@ -13,6 +13,7 @@ import 'translation';
 import Toast from 'react-native-toast-message';
 import {useAuth0, Auth0Provider} from 'react-native-auth0';
 import { PaperProvider } from 'react-native-paper';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -61,6 +62,7 @@ const App = () => {
   }
 
   return (
+    <GestureHandlerRootView style={{flex:1}}>
     <SafeAreaProvider style={{flex: 1}}>
       <Auth0Provider domain={"dev-rfp1yizaltfjs3dc.us.auth0.com"} clientId={"Svun7aHQMs9pM0hMISr3WQ8sSUM6iDTC"}>
       <Provider store={store}>
@@ -75,6 +77,7 @@ const App = () => {
       <Toast />
 
     </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
 export default App;

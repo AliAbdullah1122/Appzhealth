@@ -76,7 +76,7 @@ export const ONBOARDING_LIST = [
 export const SERVICE_LIST = [
   {
     icon: IMG.HomeCartTool,
-    title: 'New first_name Added',
+    title: 'New Patients Added',
     number: '800',
     screenName: 'MyOrderScreen',
   },
@@ -90,7 +90,7 @@ export const SERVICE_LIST = [
 
   {
     icon: IMG.HomeCartTool,
-    title: 'first_name Missing Insurance',
+    title: 'Patients Missing Insurance',
     number: '800',
     screenName: 'MyOrderScreen',
   },
@@ -179,6 +179,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647261',
@@ -190,6 +191,8 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
+    
   },
   {
     id: '#63746723647262',
@@ -201,6 +204,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647263',
@@ -212,6 +216,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647264',
@@ -223,6 +228,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647265',
@@ -234,6 +240,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647266',
@@ -245,6 +252,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647267',
@@ -256,6 +264,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647268',
@@ -267,6 +276,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   {
     id: '#63746723647269',
@@ -278,6 +288,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
+    details:" "
   },
   
 ];

@@ -49,6 +49,7 @@ import UpdateProfileScreen from 'screens/update_profile';
 import UploadDocumentsScreen from 'screens/upload-documents';
 import VehicleInsuranceScreen from 'screens/vehicle-insurance';
 import { PatientStack } from './patient-navigation/patient-stack';
+import { DiscoveryStack } from './discovery-navigation/discovery-stack';
 
 const Stack = createNativeStackNavigator();
 
@@ -179,6 +180,7 @@ export const RootNavigator = () => {
         
         <Stack.Screen name="Drawer" component={DrawerNavigation} />
         <Stack.Screen name="PatientStack" component={PatientStack} />
+        <Stack.Screen name="DiscoveryStack" component={DiscoveryStack} />
         <Stack.Screen name="DriverSignup" component={DriverSignup} />
       </Stack.Navigator>
     </View>

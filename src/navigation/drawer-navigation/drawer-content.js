@@ -115,7 +115,7 @@ const onPressLogout = async () => {
       <ScrollView style={styles.scrololstyle}>
        
         <DrawerHomeCard
-          onPress={() => navigate('ManageVehicleScreen')}
+          // onPress={() => navigate('ManageVehicleScreen')}
           icon1={IMG.home}
           label1={'Home'}
           br={8}
@@ -132,26 +132,26 @@ const onPressLogout = async () => {
           containerStyle={styles.helpStyle}
         />
         <DrawerHomeCard
-          onPress={() => navigate('DiscoveryScreen')}
+          onPress={() => navigate('DiscoveryStack')}
           icon1={IMG.discovery}
           label1={'Discovery'}
           containerStyle={styles.helpStyle}
         />
 
         <DrawerHomeCard
-          onPress={() => navigate('MessageHomeScreen')}
+          // onPress={() => navigate('MessageHomeScreen')}
           icon1={IMG.eligibility}
           label1={'Eligibility'}
           containerStyle={styles.helpStyle}
         />
         <DrawerHomeCard
-          onPress={() => navigate('ShoppingScreen')}
+          // onPress={() => navigate('ShoppingScreen')}
           icon1={IMG.claims}
           label1={'Claims'}
           containerStyle={styles.helpStyle}
         />
          <DrawerHomeCard
-          onPress={() => navigate('UserTab')}
+          // onPress={() => navigate('UserTab')}
           icon1={IMG.user}
           label1={t('my_profile')}
           containerStyle={styles.helpStyle}
