@@ -299,6 +299,7 @@ import HeaderNewSearch from 'components/atoms/headers/header-new-search';
 import {mvs} from 'config/metrices';
 import styles from './styles';
 import {PATIENT_LIST_DATA} from 'config/constants'; // Assuming you import your PATIENT_LIST_DATA
+import HeaderAddPatient from 'components/atoms/headers/header-add-patient-';
 
 const PatientManagement = props => {
   const [data, setData] = React.useState(PATIENT_LIST_DATA);
@@ -404,10 +405,11 @@ const PatientManagement = props => {
 
   return (
     <View style={styles.container}>
-      <HeaderNewSearch
+      <HeaderAddPatient
         back={true}
         style={{backgroundColor: colors.transparent}}
-        onPress={() => props.navigation.navigate('NewSearchScreen')}
+        onPress={() => props.navigation.navigate('AddPatientScreen')}
+
       />
 
       <View style={{marginBottom: mvs(20), marginHorizontal: mvs(20)}}>

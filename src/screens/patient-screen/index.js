@@ -74,7 +74,7 @@ const PatientScreen = props => {
           back={true}
           // title={'Patients'}
           style={{backgroundColor: colors.transparent}}
-          onPress={() => navigate('AddPPatientScreen')}
+          onPress={() => navigate('AddPatientScreen')}
         />
 
         
