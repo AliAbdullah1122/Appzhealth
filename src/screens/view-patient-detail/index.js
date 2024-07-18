@@ -138,6 +138,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('first_name')}
                     onBlur={handleBlur('first_name')}
                     value={values.first_name}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
                   <PrimaryInputPatient
                     label="Required"
@@ -149,6 +150,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('last_name')}
                     onBlur={handleBlur('last_name')}
                     value={values.last_name}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
                   <DatePicker
                   
@@ -173,6 +175,7 @@ const ViewPatientDetailsScreen = props => {
                       //   setFieldTouched('dob', true);
                       // }}
                       value={values.dob}
+                      containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                     />
                   </DatePicker>
 
@@ -188,6 +191,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('phoe')}
                     onBlur={handleBlur('phone')}
                     value={values.phone}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
                   <PrimaryInputPatient
                     label="Required"
@@ -200,6 +204,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
                     value={values.email}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
                   <DatePicker
                     onPress={() => {
@@ -225,6 +230,7 @@ const ViewPatientDetailsScreen = props => {
                       //   setFieldTouched('appointment_date', true);
                       // }}
                       value={values.appointment_date}
+                      containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                     />
                   </DatePicker>
                   <PrimaryInputPatient
@@ -240,6 +246,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('insurance_name')}
                     onBlur={handleBlur('insurance_name')}
                     value={values.insurance_name}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
 
                   <PrimaryInputPatient
@@ -251,6 +258,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('member_id')}
                     onBlur={handleBlur('member_id')}
                     value={values.member_id}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
                   <PrimaryInputPatient
                   // disabled={editMode}
@@ -261,6 +269,7 @@ const ViewPatientDetailsScreen = props => {
                     onChangeText={handleChange('group_number')}
                     onBlur={handleBlur('group_number')}
                     value={values.group_number}
+                    containerStyle={{backgroundColor:editMode ? colors.white:colors.gray}}
                   />
 
                   {editMode && <Row>

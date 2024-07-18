@@ -122,7 +122,7 @@ const ImportPatientScreen = props => {
                               <>
                                 <Row style={{justifyContent: 'space-between'}}>
                                   <TouchableOpacity
-                                    style={{width: mvs(50), height: mvs(50)}}
+                                    style={{width: mvs(150), height: mvs(150)}}
                                     onPress={() =>
                                       handleImagePress(
                             
@@ -139,7 +139,7 @@ const ImportPatientScreen = props => {
                                           'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg',
                                       }}
                                       resizeMode="cover"
-                                      style={{width: mvs(50), height: mvs(50)}}
+                                      style={{width: mvs(150), height: mvs(150)}}
                                       // color={colors.primary}
                                       // fontSize={mvs(14)}
                                       // style={styles.filenametext}

@@ -179,7 +179,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647261',
@@ -191,7 +191,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
     
   },
   {
@@ -204,7 +204,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647263',
@@ -216,7 +216,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647264',
@@ -228,7 +228,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647265',
@@ -240,7 +240,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647266',
@@ -252,7 +252,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647267',
@@ -264,7 +264,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647268',
@@ -276,7 +276,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   {
     id: '#63746723647269',
@@ -288,7 +288,7 @@ export const PATIENT_LIST_DATA = [
     dedecutable: 'deductable',
     insurance: 'insurance',
     status: 'sttuas',
-    details:" "
+    details:"Details"
   },
   
 ];
